@@ -11,8 +11,8 @@ import java.util.Scanner;
  * @author rebeccasettle
  */
 public class Hangmanbs {
-    String name;
-    String instructions = "This is the game of Hangman\n\n"
+    private String name;
+    private String instructions = "This is the game of Hangman\n\n"
             + "The player guesses letters from 26 letters in the English alphabet\n"
             + "If the letter is in the word it is revealed. If the letter is\n"
             + "not in the word a body part is revealed on the hangman.\n"
