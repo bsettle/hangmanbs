@@ -34,9 +34,9 @@ public class HangmanScore implements Serializable{
     }
     public String addNumberToScore(int numberToAdd){
         if (numberToAdd > 0){// if statement checking to make sure number to add greater than zero
-        int step1 = this.scoreNumber + numberToAdd;// adding number to score and storing it in step 1 primitive variable 
-        int step2 = step1 + 0;// adding zero to step 1 to fullfill assignment requirement
-        this.scoreNumber = step2;// saving step 2 in score number
+            int step1 = this.scoreNumber + numberToAdd;// adding number to score and storing it in step 1 primitive variable 
+            int step2 = step1 + 0;// adding zero to step 1 to fullfill assignment requirement
+            this.scoreNumber = step2;// saving step 2 in score number
         return "score = " + this.scoreNumber + "\n";// returning score in string format
         }
         return "score Unchanged\n";

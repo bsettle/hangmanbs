@@ -27,8 +27,10 @@ public class Hangmanbs {
      */
     public static void main(String[] args) {
         Hangmanbs myGame = new Hangmanbs();
-        myGame.getName();
-        myGame.displayHelp();
+            myGame.getName();
+            myGame.displayHelp();
+        HangmanGallows myGallows = new HangmanGallows();
+            myGallows.displayGallows();
         // TODO code application logic here
     }
     public void getName(){
