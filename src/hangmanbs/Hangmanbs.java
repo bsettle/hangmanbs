@@ -31,6 +31,9 @@ public class Hangmanbs {
             myGame.displayHelp();
         HangmanGallows myGallows = new HangmanGallows();
             myGallows.displayGallows();
+            HelpMenuView menu = new HelpMenuView();
+            menu.displayMenu();
+            menu.getInput();
         // TODO code application logic here
     }
     public void getName(){
