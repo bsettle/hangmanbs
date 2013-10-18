@@ -22,7 +22,8 @@ public class HelpMenuControl {
     private String menu = "Instuctions = I\n"
              + "Quit = Q\n"
              + "Authors = A\n"
-             + "Menu = M\n";
+             + "Menu = M\n"
+             + "Start Game = S\n";
      
     private String authors = "Becky\n"
              + "Calvin\n";
@@ -35,6 +36,9 @@ public class HelpMenuControl {
      public String getAuthors(){
      return this.authors;
      }
+    // public String startGame(){
+         
+   //  }
      public boolean isQuit(String input){
          return input.equalsIgnoreCase("Q");// Will check to see if the user input the Q command
      }
@@ -42,7 +46,9 @@ public class HelpMenuControl {
          if (input.equalsIgnoreCase("I")){return this.instructions;}
          if (input.equalsIgnoreCase("A")){return this.authors;}
          if (input.equalsIgnoreCase("M")){return this.menu;}
+         if (input.equalsIgnoreCase("S")){return this.startGameHomey();}
          if (input.equalsIgnoreCase("Q")){return "";}
+         
          return "unknown command";
      }
      public boolean isProperlyFormatedCommand (String input){
@@ -51,4 +57,12 @@ public class HelpMenuControl {
          }
          return false;
      }
+
+    private String startGameHomey() {
+        Hangmanbs myGame = new Hangmanbs();
+            myGame.getName();
+            myGame.displayHelp();
+            
+            return "yay you played a game.. you're so smart!!!";
+    }
 }

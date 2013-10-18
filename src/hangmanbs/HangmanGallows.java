@@ -9,12 +9,18 @@ package hangmanbs;
  * @author Calvin
  */
 public class HangmanGallows {
-    private String Gallows = "*********\n09870987\n09870987\t*********";
+    private String Gallows = "t*********"
+            + "\n|"
+            + "\n|"
+            + "\n|"
+            + "\n|"
+            + "******************";
     public void HangmanGallows(){
     
             }
-            public void displayGallows(){
-            System.out.println(this.Gallows);
+            public String displayGallows(){
+           // System.out.println(this.Gallows);
+                return this.Gallows;
 }
     
 }

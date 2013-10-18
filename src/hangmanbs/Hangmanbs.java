@@ -26,14 +26,15 @@ public class Hangmanbs {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Hangmanbs myGame = new Hangmanbs();
-            myGame.getName();
-            myGame.displayHelp();
-        HangmanGallows myGallows = new HangmanGallows();
-            myGallows.displayGallows();
+        
+      HangmanGallows myGallows = new HangmanGallows();
+            String b = myGallows.displayGallows();
+            System.out.println(b);
             HelpMenuView menu = new HelpMenuView();
             menu.displayMenu();
             menu.getInput();
+            
+           
         // TODO code application logic here
     }
     public void getName(){
