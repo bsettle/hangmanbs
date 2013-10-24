@@ -33,7 +33,10 @@ public class Hangmanbs {
             HelpMenuView menu = new HelpMenuView();
             menu.displayMenu();
             menu.getInput();
-            
+            while (true){
+                InputRetriever inputRetriever = new InputRetriever();//Creates and object to get input from the user
+                System.out.println(inputRetriever.retrieveInput());//prints out whatever the user inputs
+            }
            
         // TODO code application logic here
     }

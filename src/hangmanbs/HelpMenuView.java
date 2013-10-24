@@ -25,6 +25,9 @@ public class HelpMenuView {
                 if (control.isQuit(userInput)){//if user inputs Q then it quits
                     break;
                     }
+                if (control.isStartGame(userInput)){
+                    break;
+                }
                 displayString(control.getAction(userInput));//displays the string depending on the letter the user inputs ie. I,A,Q
             }
             else {

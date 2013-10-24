@@ -41,6 +41,11 @@ public class HelpMenuControl {
    //  }
      public boolean isQuit(String input){
          return input.equalsIgnoreCase("Q");// Will check to see if the user input the Q command
+         
+     }
+     public boolean isStartGame(String input){
+         return input.equalsIgnoreCase("S");// Will check to see if the user input the S command
+         
      }
      public String getAction(String input){// Checking to see what command the user input and returning the proper string to dispay
          if (input.equalsIgnoreCase("I")){return this.instructions;}
@@ -59,10 +64,10 @@ public class HelpMenuControl {
      }
 
     private String startGameHomey() {
-        Hangmanbs myGame = new Hangmanbs();
-            myGame.getName();
-            myGame.displayHelp();
-            
-            return "yay you played a game.. you're so smart!!!";
+        //Hangmanbs myGame = new Hangmanbs();
+           // myGame.getName();
+           //  myGame.displayHelp();
+        return "Welcome to Hangman";
+          // return "yay you played a game... you're so smart!!!";
     }
 }

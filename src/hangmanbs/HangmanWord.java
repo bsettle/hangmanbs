@@ -32,6 +32,25 @@ public class HangmanWord {
     
    
     public void displayLettersGuessed(){
-        System.out.println("\nLetters Guessed " + this.lettersGuessed+"\n");
+        for(String guess : this.lettersGuessed){
+            System.out.println(guess+"n");//Displays each letter guessed by user.
+        }
+       
+    }
+    public void displayWordStatus (){
+        for (int i=0;i<this.word.length();i++){//This for loop iterates through each letter of the word
+            if (lettersGuessed.contains(Character.toString(this.word.charAt(i)))){//This checks to see if the user guessed a correct letter
+                System.out.printf("%c", this.word.charAt(i));//Letter appears if correct
+            }
+            else{
+                System.out.printf(" ");//Nothing print out if incorrect
+            }
+        }
+        
+        System.out.println();
+        
+        for (int i=0;i<this.word.length();i++){//This for loop iterates throught each letter of the word
+            System.out.printf("-");//This prints out how many letters are in the word
+        }
     }
     }
