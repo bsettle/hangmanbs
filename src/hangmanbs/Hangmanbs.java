@@ -29,9 +29,11 @@ public class Hangmanbs {
      */
     public static void main(String[] args) {
         
-      HangmanGallows myGallows = new HangmanGallows();
-            String b = myGallows.displayGallows();
-            System.out.println(b);
+      HangmanGallows myGallows = new HangmanGallows(); //This creates a new object of the Hangman Gallows class
+            String b = myGallows.displayGallows(); //This runs the function under the gallows class and stores it into the variable "b"
+            System.out.println(b); //This displays the variable "b", which is the gallows.
+            
+            
             HelpMenuView menu = new HelpMenuView();
             menu.displayMenu();
             menu.getInput();

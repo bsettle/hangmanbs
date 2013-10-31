@@ -9,12 +9,16 @@ package hangmanbs;
  * @author Calvin
  */
 public class HangmanGallows {
-    private String Gallows = "t*********"
-            + "\n|"
-            + "\n|"
-            + "\n|"
-            + "\n|"
-            + "******************";
+    private String Gallows = "\t|********|"
+            + "\n\t|\t( )"
+            + "\n\t|"
+            + "\n\t|"
+            + "\n\t|"
+            + "\n\t|"
+            + "\n\t|"
+            + "\n\t|"
+            + "\n\t|"
+            + "\n***************************";
     public void HangmanGallows(){
     
             }
