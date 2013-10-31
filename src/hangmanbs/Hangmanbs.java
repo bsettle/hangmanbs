@@ -51,6 +51,10 @@ public class Hangmanbs {
       System.out.println("Printing Single Dimensional Array");
       assignment.printArray();
       assignment.sumArray();*/
+            
+      /*CalvinArray arrayed = new CalvinArray(); "This creates an object of my CalvinArray class and calls it arrayed"
+       * arrayed.arrayAssignment(); "This runs the method from the CalvinArray class called arrayAssignment, which outputs my arrays."
+       */
       
             // TODO code application logic here
     }
