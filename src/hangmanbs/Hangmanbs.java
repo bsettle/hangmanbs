@@ -12,16 +12,18 @@ import java.util.Scanner;
  */
 public class Hangmanbs {
     private String name;
-    private String instructions = "This is the game of Hangman\n\n"
-            + "The player guesses letters from 26 letters in the English alphabet\n"
-            + "If the letter is in the word it is revealed. If the letter is\n"
-            + "not in the word a body part is revealed on the hangman.\n"
-            + "There are 6 parts of the hangman which are the head, body, 2 legs,\n"
-            + "and 2 arms. If the player cannot guess the word before all 6\n"
-            + "of the the body parts are showing on the gallows the player loses.\n"
-            + "If the player guessed all the letters in the word without hanging\n"
-            + "the hangman the player wins.\n\n"; 
-            
+    private String instructions = 
+            "==========================================================================\n"
+            +"\tThis is the game of Hangman\n\n"
+            + "\tThe player guesses letters from 26 letters in the English alphabet\n"
+            + "\tIf the letter is in the word it is revealed. If the letter is\n"
+            + "\tnot in the word a body part is revealed on the hangman.\n"
+            + "\tThere are 6 parts of the hangman which are the head, body, 2 legs,\n"
+            + "\tand 2 arms. If the player cannot guess the word before all 6\n"
+            + "\tof the the body parts are showing on the gallows the player loses.\n"
+            + "\tIf the player guessed all the letters in the word without hanging\n"
+            + "\tthe hangman the player wins.\n\n" 
+            + "==========================================================================\n";
             /**
      * @param args the command line arguments
      */
