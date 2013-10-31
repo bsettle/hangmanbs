@@ -37,8 +37,18 @@ public class Hangmanbs {
                 InputRetriever inputRetriever = new InputRetriever();//Creates and object to get input from the user
                 System.out.println(inputRetriever.retrieveInput());//prints out whatever the user inputs
             }
-           
-        // TODO code application logic here
+      /*ClassAssignments assignment = new ClassAssignments();
+      System.out.println("Printing Multi Dimensional Array");
+      assignment.printMultiArray();
+      System.out.println("Printing Single Dimensional Array");
+      assignment.printArray();
+      System.out.println("Sorting Single Dimensional Array");
+      assignment.sortArray();
+      System.out.println("Printing Single Dimensional Array");
+      assignment.printArray();
+      assignment.sumArray();*/
+      
+            // TODO code application logic here
     }
     public void getName(){
         Scanner input = new Scanner(System.in);
