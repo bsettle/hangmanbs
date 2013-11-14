@@ -6,6 +6,7 @@ package hangmanbs;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -14,6 +15,16 @@ import java.util.ArrayList;
 public class HangmanWord implements Serializable{
     private static String word = "word";
     private static ArrayList <String> lettersGuessed = new ArrayList <>();
+    private static String[] anArray = {"Hello", "Java", "BYUI"};
+
+    public static String[] getAnArray() {
+        return anArray;
+    }
+
+    public static void setAnArray(String[] anArray) {
+        HangmanWord.anArray = anArray;
+    }
+    
     
     public static void displayWord(){
         System.out.println("\nWord " + HangmanWord.word+"\n");
@@ -38,7 +49,10 @@ public class HangmanWord implements Serializable{
 
     public HangmanWord() {
     }
-    
+    public static void setRandomWord(){
+        Random rand = new Random();
+        setWord(HangmanWord.anArray[rand.nextInt()%HangmanWord.anArray.length]);//Randomly chooses a word from our set array of words and sets it as the word to play with.
+    }
     public static boolean isLetterInWord(String letter){
         String lowerCaseLetter = letter.toLowerCase();
         String myWord;
