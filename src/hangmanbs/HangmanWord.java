@@ -4,43 +4,59 @@
  */
 package hangmanbs;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author rebeccasettle
  */
-public class HangmanWord {
-    private String word = "word";
-    private ArrayList <String> lettersGuessed = new ArrayList <>();
+public class HangmanWord implements Serializable{
+    private static String word = "word";
+    private static ArrayList <String> lettersGuessed = new ArrayList <>();
     
-    public void displayWord(){
-        System.out.println("\nWord " + this.word+"\n");
+    public static void displayWord(){
+        System.out.println("\nWord " + HangmanWord.word+"\n");
      
     }
-    public void setWord (String word){
-        this.word = word;
+
+    public static String getWord() {
+        return word;
     }
-    public String getWord(){
-        return this.word;
+
+    public static void setWord(String word) {
+        HangmanWord.word = word;
     }
-    public boolean isLetterInWord(String letter){
+
+    public static ArrayList<String> getLettersGuessed() {
+        return lettersGuessed;
+    }
+
+    public static void setLettersGuessed(ArrayList<String> lettersGuessed) {
+        HangmanWord.lettersGuessed = lettersGuessed;
+    }
+
+    public HangmanWord() {
+    }
+    
+    public static boolean isLetterInWord(String letter){
         String lowerCaseLetter = letter.toLowerCase();
-        String word = this.word.toLowerCase();
-        return word.contains(lowerCaseLetter);
+        String myWord;
+        myWord = HangmanWord.word.toLowerCase();
+        return myWord.contains(lowerCaseLetter);
     }
     
    
-    public void displayLettersGuessed(){
-        for(String guess : this.lettersGuessed){
+    public static void displayLettersGuessed(){
+        for(String guess : HangmanWord.lettersGuessed){
             System.out.println(guess+"n");//Displays each letter guessed by user.
         }
        
     }
-    public void displayWordStatus (){
-        for (int i=0;i<this.word.length();i++){//This for loop iterates through each letter of the word
-            if (lettersGuessed.contains(Character.toString(this.word.charAt(i)))){//This checks to see if the user guessed a correct letter
-                System.out.printf("%c", this.word.charAt(i));//Letter appears if correct
+    public static void displayWordStatus (){
+        for (int i=0;i<HangmanWord.word.length();i++){//This for loop iterates through each letter of the word
+            if (lettersGuessed.contains(Character.toString(HangmanWord.word.charAt(i)))){//This checks to see if the user guessed a correct letter
+                System.out.printf("%c", HangmanWord.word.charAt(i));//Letter appears if correct
             }
             else{
                 System.out.printf(" ");//Nothing print out if incorrect
@@ -49,8 +65,17 @@ public class HangmanWord {
         
         System.out.println();
         
-        for (int i=0;i<this.word.length();i++){//This for loop iterates throught each letter of the word
+        for (int i=0;i<HangmanWord.word.length();i++){//This for loop iterates throught each letter of the word
             System.out.printf("-");//This prints out how many letters are in the word
         }
+    }
+    @Override
+    public String toString(){
+        String output = "";
+    output = HangmanWord.word;
+    for(String guess : HangmanWord.lettersGuessed){
+           output = output.concat(guess);   
+    }
+    return output;
     }
     }

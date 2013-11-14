@@ -13,7 +13,11 @@ import java.util.regex.Pattern;
  * @author rebeccasettle
  */
 public class InputRetriever {
-    public String retrieveInput(){
+
+    public InputRetriever() {
+    }
+    
+    public static String retrieveInput(){
         Scanner input = new Scanner(System.in);// Scanner will get new input form the user
         
         while (input.hasNext()){//checks to see that the user has input a new command for the menu
