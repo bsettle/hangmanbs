@@ -4,51 +4,64 @@
  */
 package hangmanbs;
 
+import java.io.Serializable;
+
 /**
  *
  * @author rebeccasettle
  */
-public class HangmanPlayer {
-    private String playerName;//instance variable
-    private int guesses;//instance variable
+public class HangmanPlayer implements Serializable {
+    private static String playerName;//instance variable
+    private static int guesses;//instance variable
 
     public HangmanPlayer() {
         this.guesses = 0;
+        this.playerName = "Player";
     }
-    public void setPlayerName(String playerName){
-        this.playerName = playerName;
+
+    public static String getPlayerName() {
+        return playerName;
     }
-    public void setGuesses(int guesses){
-        this.guesses = guesses;
+
+    public static void setPlayerName(String playerName) {
+        HangmanPlayer.playerName = playerName;
+    }
+
+    public static int getGuesses() {
+        return guesses;
+    }
+
+    public static void setGuesses(int guesses) {
+        HangmanPlayer.guesses = guesses;
     }
     
-    public String getPlayerName (){
-        return this.playerName;
+    public static void incrementGuesses(){
+        HangmanPlayer.guesses = (HangmanPlayer.guesses + 1);
     }
-    public int getGuesses (){
-        return this.guesses;
-    }
-    public void incrementGuesses(){
-        this.guesses = (this.guesses + 1);
-    }
-    public void resetGuesses(){
-        this.guesses = 0;
+    public static void resetGuesses(){
+        HangmanPlayer.guesses = 0;
     }       
-     public String addNumberToGuesses(int numberToAdd){
+     public static String addNumberToGuesses(int numberToAdd){
         if (numberToAdd > 0){// if statement checking to make sure number to add greater than zero
-        int step1 = this.guesses + numberToAdd;// adding number to score and storing it in step 1 primitive variable 
+        int step1 = HangmanPlayer.guesses + numberToAdd;// adding number to score and storing it in step 1 primitive variable 
         int step2 = step1 + 0;// adding zero to step 1 to fullfill assignment requirement
-        this.guesses = step2;// saving step 2 in score number
-        return "guess = " + this.guesses + "\n";// returning score in string format
+        HangmanPlayer.guesses = step2;// saving step 2 in score number
+        return "guess = " + HangmanPlayer.guesses + "\n";// returning score in string format
         }
         return "guess Unchanged\n";
      }
-    public void displayPlayerName(){
-        System.out.println("\nPlayer Name " + this.playerName+"\n");//prints out player name
+    public static void displayPlayerName(){
+        System.out.println("\nPlayer Name " + HangmanPlayer.playerName+"\n");//prints out player name
      
     }
-    public void displayGuesses(){
-        System.out.println("\nGuesses " + this.guesses+"\n");
+    public static void displayGuesses(){
+        System.out.println("\nGuesses " + HangmanPlayer.guesses+"\n");
     }
-    
+    @Override
+    public String toString(){
+        String output = "";
+        output = HangmanPlayer.playerName;
+        output = output.concat(String.valueOf(HangmanPlayer.guesses));
+        return output;
+    }
 }

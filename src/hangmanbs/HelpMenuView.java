@@ -11,12 +11,17 @@ import java.util.Scanner;
  * @author rebeccasettle
  */
 public class HelpMenuView {
-    public void displayMenu(){
+
+    public HelpMenuView() {
+    }
+    
+    public static void displayMenu(){
         HelpMenuControl control = new HelpMenuControl();//New class HelpMenuControl
         displayString(control.getMenu());// Displays menu
+       
         
     }
-    public void getInput(){
+    public static void getInput(){
         Scanner input = new Scanner(System.in);// Scanner will get new input form the user
         HelpMenuControl control = new HelpMenuControl();//this class will exicute the action for the command that is input
         while (input.hasNext()){// checks to see that the user has input a new command for the menu
@@ -35,7 +40,7 @@ public class HelpMenuView {
             } 
         }
     }
-    public void displayString(String input){//this function displays the output
+    public static void displayString(String input){//this function displays the output
         System.out.println(input);
     }
 }

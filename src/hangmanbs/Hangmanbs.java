@@ -4,15 +4,16 @@
  */
 package hangmanbs;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
  *
  * @author rebeccasettle
  */
-public class Hangmanbs {
-    private String name;
-    private String instructions = 
+public class Hangmanbs implements Serializable{
+    private static String name;
+    private static String instructions = 
             "==========================================================================\n"
             +"\tThis is the game of Hangman\n\n"
             + "\tThe player guesses letters from 26 letters in the English alphabet\n"
@@ -56,17 +57,39 @@ public class Hangmanbs {
        * arrayed.arrayAssignment(); "This runs the method from the CalvinArray class called arrayAssignment, which outputs my arrays."
        */
       
-            // TODO code application logic here
     }
-    public void getName(){
+    public static void getPlayerName(){
         Scanner input = new Scanner(System.in);
         System.out.println("Enter your name:");
-        this.name = input.next();
+        Hangmanbs.name = input.next();
                 
     }
-    public void displayHelp(){
-        System.out.println("\nWelcome " + this.name+"\n");
-        System.out.println("\nInstructions: " + this.instructions+"\n");
+    public static void displayHelp(){
+        System.out.println("\nWelcome " + Hangmanbs.name+"\n");
+        System.out.println("\nInstructions: " + Hangmanbs.instructions+"\n");
         
     }
+
+    public static String getName() {
+        return name;
+    }
+
+    public static void setName(String name) {
+        Hangmanbs.name = name;
+    }
+
+    public static String getInstructions() {
+        return instructions;
+    }
+
+    public static void setInstructions(String instructions) {
+        Hangmanbs.instructions = instructions;
+    }
+    @Override
+    public String toString(){
+        String output = "";
+        output = output.concat(Hangmanbs.name);
+        output = output.concat(Hangmanbs.instructions);
+        return output;
+    }  
 }

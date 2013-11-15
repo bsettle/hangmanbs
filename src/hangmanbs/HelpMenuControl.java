@@ -4,12 +4,14 @@
  */
 package hangmanbs;
 
+import java.io.Serializable;
+
 /**
  *
  * @author rebeccasettle
  */
-public class HelpMenuControl {
-    private String instructions = "==========================================================================\n"
+public class HelpMenuControl implements Serializable {
+    private static String instructions = "==========================================================================\n"
             +"\tThis is the game of Hangman\n\n"
             + "\tThe player guesses letters from 26 letters in the English alphabet\n"
             + "\tIf the letter is in the word it is revealed. If the letter is\n"
@@ -21,55 +23,81 @@ public class HelpMenuControl {
             + "\tthe hangman the player wins.\n\n" 
             + "==========================================================================\n"; 
      
-    private String menu = "Instuctions = I\n"
+    private static String menu = "Instuctions = I\n"
              + "Quit = Q\n"
              + "Authors = A\n"
              + "Menu = M\n"
              + "Start Game = S\n";
      
-    private String authors = "Becky\n"
+    private static String authors = "Becky\n"
              + "Calvin\n";
-     public String getMenu(){
-     return this.menu;
-     }
-     public String getInstructions(){
-     return this.instructions;
-     }
-     public String getAuthors(){
-     return this.authors;
-     }
-    // public String startGame(){
-         
-   //  }
-     public boolean isQuit(String input){
+    public HelpMenuControl() {
+    
+    }
+
+    public static String getInstructions() {
+        return instructions;
+    }
+
+    public static void setInstructions(String instructions) {
+        HelpMenuControl.instructions = instructions;
+    }
+
+    public static String getMenu() {
+        return menu;
+    }
+
+    public static void setMenu(String menu) {
+        HelpMenuControl.menu = menu;
+    }
+
+    public static String getAuthors() {
+        return authors;
+    }
+
+    public static void setAuthors(String authors) {
+        HelpMenuControl.authors = authors;
+    }
+    
+     
+     public static boolean isQuit(String input){
          return input.equalsIgnoreCase("Q");// Will check to see if the user input the Q command
          
      }
-     public boolean isStartGame(String input){
+     public static boolean isStartGame(String input){
          return input.equalsIgnoreCase("S");// Will check to see if the user input the S command
          
      }
-     public String getAction(String input){// Checking to see what command the user input and returning the proper string to dispay
-         if (input.equalsIgnoreCase("I")){return this.instructions;}
-         if (input.equalsIgnoreCase("A")){return this.authors;}
-         if (input.equalsIgnoreCase("M")){return this.menu;}
-         if (input.equalsIgnoreCase("S")){return this.startGameHomey();}
+     public static String getAction(String input){// Checking to see what command the user input and returning the proper string to dispay
+         if (input.equalsIgnoreCase("I")){return HelpMenuControl.instructions;}
+         if (input.equalsIgnoreCase("A")){return HelpMenuControl.authors;}
+         if (input.equalsIgnoreCase("M")){return HelpMenuControl.menu;}
+         if (input.equalsIgnoreCase("S")){return HelpMenuControl.startGameHomey();}
          if (input.equalsIgnoreCase("Q")){return "";}
          
          return "unknown command";
      }
-     public boolean isProperlyFormatedCommand (String input){
+     public static boolean isProperlyFormatedCommand (String input){
          if (input.length()==1){
              return true;
          }
          return false;
      }
 
-    private String startGameHomey() {
+    private static String startGameHomey() {
         //Hangmanbs myGame = new Hangmanbs();
            // myGame.getName();
            //  myGame.displayHelp();
         return "Welcome to Hangman";
           // return "yay you played a game... you're so smart!!!";
     }
+    @Override
+    public String toString(){
+        String output = "";
+        output = output.concat (instructions);
+        output = output.concat (authors);
+        output = output.concat (menu);
+        return output;
+    }
+    
 }
