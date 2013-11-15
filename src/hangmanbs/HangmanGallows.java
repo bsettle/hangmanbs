@@ -10,14 +10,15 @@ package hangmanbs;
  */
 public class HangmanGallows {
     private String Gallows = "\t|********|"
+            + "\n\t|\t |"
+            + "\n\t|\t |"            
             + "\n\t|\t( )"
+            + "\n\t|\t |"
+            + "\n\t|\t/|\\"
+            + "\n\t|\t |"
+            + "\n\t|\t/ \\"
             + "\n\t|"
-            + "\n\t|"
-            + "\n\t|"
-            + "\n\t|"
-            + "\n\t|"
-            + "\n\t|"
-            + "\n\t|"
+            + "\n\t|"            
             + "\n***************************";
     public void HangmanGallows(){
     
