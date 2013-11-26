@@ -2,8 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package hangmanbs;
+package citbyui.cit210.hangman.menus;
 
+import static citbyui.cit210.hangman.menus.MenuItems.AUTHORS;
+import static citbyui.cit210.hangman.menus.MenuItems.MENU;
+import static citbyui.cit210.hangman.menus.MenuItems.START_GAME;
 import java.io.Serializable;
 
 /**
@@ -23,14 +26,18 @@ public class HelpMenuControl implements Serializable {
             + "\tthe hangman the player wins.\n\n" 
             + "==========================================================================\n"; 
      
-    private static String menu = "Instuctions = I\n"
-             + "Quit = Q\n"
-             + "Authors = A\n"
-             + "Menu = M\n"
-             + "Start Game = S\n";
+    private static String menu = "Instuctions = INSTRUCTIONS\n"
+             + "Quit = QUIT\n"
+             + "Authors = AUTHORS\n"
+             + "Menu = MENU\n"
+             + "Start Game = START_GAME\n";
      
     private static String authors = "Becky\n"
              + "Calvin\n";
+
+    private static MenuItems MenuItems(String input) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     public HelpMenuControl() {
     
     }
@@ -61,24 +68,42 @@ public class HelpMenuControl implements Serializable {
     
      
      public static boolean isQuit(String input){
-         return input.equalsIgnoreCase("Q");// Will check to see if the user input the Q command
+         MenuItems newItem = MenuItems.valueOf(input);
+         if (newItem == MenuItems.QUIT)
+             return true;
+         return false;
          
      }
      public static boolean isStartGame(String input){
-         return input.equalsIgnoreCase("S");// Will check to see if the user input the S command
-         
+          MenuItems newItem = MenuItems.valueOf(input);
+         if (newItem == MenuItems.START_GAME)
+             return true;
+         return false;
+             
      }
-     public static String getAction(String input){// Checking to see what command the user input and returning the proper string to dispay
-         if (input.equalsIgnoreCase("I")){return HelpMenuControl.instructions;}
-         if (input.equalsIgnoreCase("A")){return HelpMenuControl.authors;}
-         if (input.equalsIgnoreCase("M")){return HelpMenuControl.menu;}
-         if (input.equalsIgnoreCase("S")){return HelpMenuControl.startGameHomey();}
-         if (input.equalsIgnoreCase("Q")){return "";}
-         
-         return "unknown command";
+     public static String getAction(String input){
+          MenuItems newItem = MenuItems.valueOf(input);
+          switch(newItem){
+              case INSTRUCTIONS:{
+                  return HelpMenuControl.instructions;
+                }
+              case AUTHORS:{
+                  return HelpMenuControl.authors;
+              }
+              case MENU:{
+                  return HelpMenuControl.menu;
+              }
+              case START_GAME:{
+                  return HelpMenuControl.startGameHomey();
+              }
+              case QUIT:{
+                  return "";
+              }
+          }
+        return "unknown command";
      }
      public static boolean isProperlyFormatedCommand (String input){
-         if (input.length()==1){
+         if (input.length()>=1){
              return true;
          }
          return false;

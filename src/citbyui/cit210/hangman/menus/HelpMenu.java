@@ -2,33 +2,30 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package hangmanbs;
+package citbyui.cit210.hangman.menus;
 
-import static hangmanbs.HelpMenuView.displayString;
 import java.util.Scanner;
 
 /**
  *
  * @author rebeccasettle
  */
-public class MainMenu extends Menu {
+public class HelpMenu extends Menu {
     private final static String [][] menuItems = {
-        {"1","One player game"},
-        {"2", "Two player game"},
-        {"H", "Help"},
-        {"P", "Change preferences"},
-        {"X", "Exit Hangman"}
+        {"I","Instruction"},
+        {"A", "Authors"},
+        {"L", "Leave Help Menu"}
     };
-   public MainMenu(){
-       super (MainMenu.menuItems);
+   public HelpMenu(){
+       super (HelpMenu.menuItems);
    } 
-   @Override
+ @Override
     public String executeCommands(){
-       super.display();
+ super.display();
          Scanner input = new Scanner(System.in);// Scanner will get new input form the user
         while (input.hasNext()){// checks to see that the user has input a new command for the menu
            super.getCommand(input.next());
         }
   return null;
-   }
+ }
 }

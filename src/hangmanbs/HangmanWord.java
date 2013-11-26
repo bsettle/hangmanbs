@@ -15,7 +15,7 @@ import java.util.Random;
 public class HangmanWord implements Serializable{
     private static String word = "word";
     private static ArrayList <String> lettersGuessed = new ArrayList <>();
-    private static String[] anArray = {"Hello", "Java", "BYUI", "Beginners", "Mormon", "Array", "Netbeans","Eduaction"};
+    private static String[] anArray = {"Hello", "Java", "BYUI", "Beginners", "Mormon", "Array", "Netbeans","Education"};
 
     public static String[] getAnArray() {
         return anArray;
