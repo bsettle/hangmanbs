@@ -4,6 +4,8 @@
  */
 package hangmanbs;
 
+import citbyui.cit210.hangman.miscellaneous.InputRetriever;
+import citbyui.cit210.hangman.miscellaneous.HangmanGallows;
 import citbyui.cit210.hangman.menus.HelpMenuView;
 import java.io.Serializable;
 import java.util.Scanner;
