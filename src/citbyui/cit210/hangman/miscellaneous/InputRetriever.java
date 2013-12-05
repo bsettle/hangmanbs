@@ -17,7 +17,7 @@ public class InputRetriever {
     public InputRetriever() {
     }
     
-    public static String retrieveInput(){
+    public static String retrieveInput() throws GuessesException {
         Scanner input = new Scanner(System.in);// Scanner will get new input form the user
         
         while (input.hasNext()){//checks to see that the user has input a new command for the menu
@@ -25,12 +25,11 @@ public class InputRetriever {
             Pattern p = Pattern.compile("[^a-zA-Z]", Pattern.CASE_INSENSITIVE);//Looking any character that is not a letter 
             Matcher m = p.matcher(userInput);
             if (m.find()){//if the string contains anything but letters then the return will be an error.
-                System.out.println("Sorry, invalid character");
-                continue;
+                throw new GuessesException("Invalid character");
                 
             }
             return userInput;
         }
-        return null;
+        throw new GuessesException("Invalid character");
     }
 }

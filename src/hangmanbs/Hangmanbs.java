@@ -7,6 +7,7 @@ package hangmanbs;
 import citbyui.cit210.hangman.miscellaneous.InputRetriever;
 import citbyui.cit210.hangman.miscellaneous.HangmanGallows;
 import citbyui.cit210.hangman.menus.HelpMenuView;
+import citbyui.cit210.hangman.miscellaneous.GuessesException;
 import java.io.Serializable;
 import java.util.Scanner;
 
@@ -32,6 +33,7 @@ public class Hangmanbs implements Serializable{
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        try {
         
       HangmanGallows myGallows = new HangmanGallows(); //This creates a new object of the Hangman Gallows class
             String b = myGallows.displayGallows(); //This runs the function under the gallows class and stores it into the variable "b"
@@ -39,11 +41,16 @@ public class Hangmanbs implements Serializable{
             
             
             HelpMenuView menu = new HelpMenuView();
-            menu.displayMenu();
-            menu.getInput();
+            HelpMenuView.displayMenu();
+            HelpMenuView.getInput();
             while (true){
-                InputRetriever inputRetriever = new InputRetriever();//Creates and object to get input from the user
-                System.out.println(inputRetriever.retrieveInput());//prints out whatever the user inputs
+                //InputRetriever inputRetriever = new InputRetriever();//Creates and object to get input from the user
+                try {
+                System.out.println(InputRetriever.retrieveInput());//prints out whatever the user inputs
+                }
+                catch(GuessesException ex) {
+                    System.out.println(ex.getMessage());
+                }
             }
       /*ClassAssignments assignment = new ClassAssignments();
       System.out.println("Printing Multi Dimensional Array");
@@ -59,7 +66,15 @@ public class Hangmanbs implements Serializable{
       /*CalvinArray arrayed = new CalvinArray(); "This creates an object of my CalvinArray class and calls it arrayed"
        * arrayed.arrayAssignment(); "This runs the method from the CalvinArray class called arrayAssignment, which outputs my arrays."
        */
-      
+            
+        }
+        catch (Throwable ex) {
+            System.err.println("Unexpected error: " + ex.getMessage());
+            System.err.println(ex.getStackTrace().toString());
+        }
+        finally{
+            System.out.println("Thanks for playing!");
+        }
     }
     public static void getPlayerName(){
         Scanner input = new Scanner(System.in);
