@@ -16,11 +16,9 @@ import java.util.logging.Logger;
  */
 public class MainMenu extends Menu {
     private final static String [][] menuItems = {
-        {"1","One player game"},
-        {"2", "Two player game"},
+        {"S","Start Game"},
         {"H", "Help"},
-        {"P", "Change preferences"},
-        {"X", "Exit Hangman"}
+        {"Q", "Quit"}
     };
    public MainMenu(){
        super (MainMenu.menuItems);

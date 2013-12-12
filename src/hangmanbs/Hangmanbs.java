@@ -4,6 +4,7 @@
  */
 package hangmanbs;
 
+import citbyui.cit210.hangman.frames.MainFrame;
 import citbyui.cit210.hangman.miscellaneous.InputRetriever;
 import citbyui.cit210.hangman.miscellaneous.HangmanGallows;
 import citbyui.cit210.hangman.menus.HelpMenuView;
@@ -34,8 +35,9 @@ public class Hangmanbs implements Serializable{
      */
     public static void main(String[] args) {
         try {
-        
-      HangmanGallows myGallows = new HangmanGallows(); //This creates a new object of the Hangman Gallows class
+        MainFrame windowDisplay = new MainFrame();
+        windowDisplay.setVisible(true);
+      /*HangmanGallows myGallows = new HangmanGallows(); //This creates a new object of the Hangman Gallows class
             String b = myGallows.displayGallows(); //This runs the function under the gallows class and stores it into the variable "b"
             System.out.println(b); //This displays the variable "b", which is the gallows.
             
