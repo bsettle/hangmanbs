@@ -4,6 +4,10 @@
  */
 package citbyui.cit210.hangman.frames;
 
+import citbyui.cit210.hangman.miscellaneous.HangmanGallows;
+import citbyui.cit210.hangman.miscellaneous.HangmanWord;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author rebeccasettle
@@ -15,6 +19,12 @@ public class GameFrame extends javax.swing.JFrame {
      */
     public GameFrame() {
         initComponents();
+        HangmanWord.setRandomWord();
+        String blankString = "";
+        for (int i = 0; i < HangmanWord.getWord().length(); i++) {
+            blankString = blankString + "_";
+        }
+        jTextArea1.setText(blankString);
     }
 
     /**
@@ -125,11 +135,72 @@ public class GameFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-    
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void tryUserGuess(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tryUserGuess
-    jTextArea1.setText(jTextField1.getText());
+        HangmanWord.addLetterGuess(jTextField1.getText().toUpperCase());
+        String blankString = "";
+        boolean wordGuessed = true;
+        int correctGuesses = 0;
+        for (int i = 0; i < HangmanWord.getWord().length(); i++) {
+            if (HangmanWord.getLettersGuessed().contains((String.valueOf(HangmanWord.getWord().charAt(i))).toUpperCase())) {
+                blankString = blankString + (String.valueOf(HangmanWord.getWord().charAt(i))).toUpperCase();
+                correctGuesses += 1;
+            } else {
+                blankString = blankString + "_";
+                wordGuessed = false;
+            }
+        }
+        jTextArea1.setText(blankString);
+        if (HangmanWord.getWord().contains(jTextField1.getText())) {
+            if (wordGuessed) {
+                //default title and icon
+                JOptionPane.showMessageDialog(this,
+                        "Congratulations! You have won the game.");
+                setVisible(false);
+                dispose();
+            }
+        } else {
+            switch (HangmanWord.numberOfGuesses() - correctGuesses) {
+                case 0: {
+                    jTextArea2.setText(HangmanGallows.Gallows1);
+                    break;
+                }
+                case 1: {
+                    jTextArea2.setText(HangmanGallows.Gallows2);
+                    break;
+                }
+                case 2: {
+                    jTextArea2.setText(HangmanGallows.Gallows3);
+                    break;
+                }
+                case 3: {
+                    jTextArea2.setText(HangmanGallows.Gallows4);
+                    break;
+                }
+                case 4: {
+                    jTextArea2.setText(HangmanGallows.Gallows5);
+                    break;
+                }
+                case 5: {
+                    jTextArea2.setText(HangmanGallows.Gallows6);
+                    break;
+                }
+                case 6: {
+                    jTextArea2.setText(HangmanGallows.Gallows7);
+                    break;
+                }
+                case 7: {
+                    jTextArea2.setText(HangmanGallows.Gallows8);
+                    JOptionPane.showMessageDialog(this,
+                            "Sorry you lose");
+                    setVisible(false);
+                    dispose();
+                    break;
+                }
+            }
+        }
+
     }//GEN-LAST:event_tryUserGuess
 
     /**

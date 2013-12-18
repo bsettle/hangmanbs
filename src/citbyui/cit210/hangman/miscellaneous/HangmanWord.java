@@ -14,7 +14,7 @@ import java.util.Random;
  */
 public class HangmanWord implements Serializable{
     private static String word = "word";
-    private static ArrayList <String> lettersGuessed = new ArrayList <>();
+    private static ArrayList <String> lettersGuessed = new ArrayList <String>();
     private static String[] anArray = {"Hello", "Java", "BYUI", "Beginners", "Mormon", "Array", "Netbeans","Education"};
 
     public static String[] getAnArray() {
@@ -50,8 +50,9 @@ public class HangmanWord implements Serializable{
     public HangmanWord() {
     }
     public static void setRandomWord(){
+        HangmanWord.lettersGuessed.clear();
         Random rand = new Random();
-        setWord(HangmanWord.anArray[rand.nextInt()%HangmanWord.anArray.length]);//Randomly chooses a word from our set array of words and sets it as the word to play with.
+        setWord(HangmanWord.anArray[Math.abs(rand.nextInt()%(HangmanWord.anArray.length))]);//Randomly chooses a word from our set array of words and sets it as the word to play with.
     }
     public static boolean isLetterInWord(String letter){
         String lowerCaseLetter = letter.toLowerCase();
@@ -62,12 +63,18 @@ public class HangmanWord implements Serializable{
     
    
     public static void displayLettersGuessed(){
-        for(String guess : HangmanWord.lettersGuessed){
+        for(String guess :HangmanWord.lettersGuessed){
             System.out.println(guess+"n");//Displays each letter guessed by user.
         }
        
     }
-    
+    public static int numberOfGuesses(){
+        return HangmanWord.lettersGuessed.size();
+        
+    }
+    public static void addLetterGuess(String guess){
+        HangmanWord.lettersGuessed.add(guess);
+    }
     public static void displayWordStatus (){
         for (int i=0;i<HangmanWord.word.length();i++){//This for loop iterates through each letter of the word
             if (lettersGuessed.contains(Character.toString(HangmanWord.word.charAt(i)))){//This checks to see if the user guessed a correct letter
@@ -83,6 +90,7 @@ public class HangmanWord implements Serializable{
         for (int i=0;i<HangmanWord.word.length();i++){//This for loop iterates throught each letter of the word
             System.out.printf("-");//This prints out how many letters are in the word
         }
+       
         
     }
     @Override
